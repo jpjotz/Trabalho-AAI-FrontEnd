@@ -1,0 +1,35 @@
+<div class="card shadow-sm h-100">
+  <div class="card-body">
+
+    <span class="badge bg-primary mb-2">
+      {{ tarefa().prioridade }}
+    </span>
+
+    <h5 class="card-title fw-bold">
+      {{ tarefa().nome }}
+    </h5>
+
+    <p class="text-muted mb-1">
+      <i class="bi bi-calendar"></i>
+      {{ tarefa().data }}
+    </p>
+
+    <p class="text-muted mb-0">
+      <i class="bi bi-tag"></i>
+      {{ tarefa().categoria }}
+    </p>
+
+    <div class="d-flex gap-2 mt-3">
+      <button class="btn btn-warning btn-sm">
+        <i class="bi bi-pencil"></i>
+        Editar
+      </button>
+
+      <button class="btn btn-danger btn-sm" (click)="deletar.emit(tarefa().id)">
+        <i class="bi bi-trash"></i>
+        Deletar
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,1 +1,74 @@
-<p>tarefa-nova works!</p>
+<div class="bg-success text-white text-center py-2 mb-4">
+  <h2>Nova tarefa</h2>
+</div>
+
+<form>
+  <div class="mb-3">
+    <label class="form-label">Nome da tarefa</label>
+    <input
+      type="text"
+      class="form-control"
+      name="nome"
+      [(ngModel)]="tarefa.nome"
+      placeholder="Digite o nome da tarefa"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Prioridade</label>
+    <select class="form-select" name="prioridade" [(ngModel)]="tarefa.prioridade">
+      <option value="">Selecione</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Média">Média</option>
+      <option value="Alta">Alta</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Data limite</label>
+    <input type="date" class="form-control" name="data" [(ngModel)]="tarefa.data" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label d-block">Categoria</label>
+
+    <div class="d-flex gap-2">
+      <button
+        type="button"
+        class="btn"
+        [class.btn-primary]="tarefa.categoria === 'Trabalho'"
+        [class.btn-outline-primary]="tarefa.categoria !== 'Trabalho'"
+        (click)="tarefa.categoria = 'Trabalho'"
+      >
+        Trabalho
+      </button>
+
+      <button
+        type="button"
+        class="btn"
+        [class.btn-primary]="tarefa.categoria === 'Doméstico'"
+        [class.btn-outline-primary]="tarefa.categoria !== 'Doméstico'"
+        (click)="tarefa.categoria = 'Doméstico'"
+      >
+        Doméstico
+      </button>
+
+      <button
+        type="button"
+        class="btn"
+        [class.btn-primary]="tarefa.categoria === 'Pessoal'"
+        [class.btn-outline-primary]="tarefa.categoria !== 'Pessoal'"
+        (click)="tarefa.categoria = 'Pessoal'"
+      >
+        Pessoal
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end mt-4">
+    <button type="button" class="btn btn-success" (click)="cadastrar()">
+      <i class="bi bi-check-lg"></i>
+      Salvar
+    </button>
+  </div>
+</form>
