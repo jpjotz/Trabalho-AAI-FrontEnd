@@ -12,4 +12,6 @@ export class TarefaCard {
   tarefa = input.required<ITarefa>();
 
   deletar = output<string>();
+
+  editar = output<string>();
 }

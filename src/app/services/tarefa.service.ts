@@ -14,6 +14,10 @@ export class TarefaService {
     return this.tarefas;
   }
 
+  buscarPorId(id: string): ITarefa | undefined {
+    return this.tarefas.find(tarefa => tarefa.id === id);
+  }
+
   atualizar(tarefaAtualizada: ITarefa): void {
     const index = this.tarefas.findIndex(tarefa => tarefa.id === tarefaAtualizada.id);
 

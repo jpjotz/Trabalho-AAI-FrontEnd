@@ -16,6 +16,6 @@
 
 <div class="row g-3">
   <div class="col-12 col-md-6 col-lg-4" *ngFor="let tarefa of tarefas">
-    <app-tarefa-card [tarefa]="tarefa" (deletar)="deletar($event)"></app-tarefa-card>
+    <app-tarefa-card [tarefa]="tarefa" (deletar)="deletar($event)" (editar)="editar($event)"></app-tarefa-card>
   </div>
 </div>

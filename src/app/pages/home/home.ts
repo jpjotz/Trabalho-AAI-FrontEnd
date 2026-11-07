@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TarefaService } from '../../services/tarefa.service';
 import { ITarefa } from '../../models/tarefa.model';
 import { TarefaCard } from '../../components/tarefa-card/tarefa-card';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   imports: [CommonModule, TarefaCard, RouterLink],
@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Home {
   private tarefaService = inject(TarefaService);
+  private router = inject(Router);
 
   dataAtual: string = new Date().toLocaleDateString('pt-BR', {
     day: 'numeric',
@@ -26,5 +27,9 @@ export class Home {
 
   deletar(id: string): void {
     this.tarefaService.deletar(id);
+  }
+
+  editar(id: string): void {
+    this.router.navigate([`/tarefa-atualiza/${id}`]);
   }
 }
