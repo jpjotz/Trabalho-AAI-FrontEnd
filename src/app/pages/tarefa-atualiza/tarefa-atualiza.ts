@@ -17,7 +17,10 @@ export class TarefaAtualiza {
   private router = inject(Router);
 
   id = this.activatedRoute.snapshot.paramMap.get('id');
-  tarefa = this.tarefaService.buscarPorId(this.id!);
+
+  tarefaOriginal = this.tarefaService.buscarPorId(this.id!);
+
+  tarefa: ITarefa | undefined = this.tarefaOriginal ? { ...this.tarefaOriginal } : undefined;
 
   atualizar(): void {
     this.tarefaService.atualizar(this.tarefa!);
